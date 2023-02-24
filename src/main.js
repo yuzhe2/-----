@@ -26,9 +26,6 @@ const tool = require('lodash');
 
 Vue.use(ElementUI)
 
-
-console.log(1111111111)
-
 //重置data数据
 Vue.prototype.resetData = (obj, that) => {
   that.$data[obj] = that.$options.data()[obj]
