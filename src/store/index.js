@@ -11,7 +11,15 @@ const store = new Vuex.Store({
     app,
     settings,
   },
-  getters
+  getters,
+  state: {
+    aid: null
+  },
+  mutations: {
+    changeAid (state, aid) {
+      state.aid = aid
+    }
+  }
 })
 
 export default store

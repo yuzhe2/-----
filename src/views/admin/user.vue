@@ -120,7 +120,7 @@ export default {
         })
         .then((res) => {
           if (res.code == 200) {
-            this.list = res.data.list;
+            this.list = res.data.list.filter(val => val.aid === null)
             this.total = res.data.total;
           }
         });
@@ -164,7 +164,6 @@ export default {
         this.$message.error("请填写所有信息");
         return;
       }
-
       await api.usersave(this.addForm).then((res) => {
         if (res.code == 200) {
           this.$message.success("操作成功!");

@@ -20,7 +20,14 @@ export default {
   computed: {
     ...mapGetters(["sidebar"]),
     routes() {
-      return this.$router.options.routes;
+      let care = this.$route.fullPath.includes('care'),
+        routeList = this.$router.options.routes
+
+      if (care) {
+        return routeList.filter(val => !val.path.includes('admin'))
+      } else {
+        return routeList.filter(val => !val.path.includes('care'))
+      }
     },
     activeMenu() {
       const route = this.$route;

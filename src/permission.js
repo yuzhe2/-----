@@ -8,19 +8,18 @@ router.beforeEach(async (to, from, next) => {
   let adminlogin = sessionStorage.getItem('adminlogin')
   let islogin = sessionStorage.getItem('islogin')
 
-  if (to.path.includes('/admin') || to.path == "/login") {
-    console.log('后台');
+  if (to.path.includes('/admin') || to.path.includes('/care') || to.path == "/login") {
     if (adminlogin == null && to.path == '/login') {
       next()
     } else if (adminlogin == null && to.path !== '/login') {
       next('/login')
     } else if (adminlogin != null && to.path == '/login') {
-      next('/admin')
+      if (to.path.includes('/care')) next('/care')
+      else next('/admin')
     } else {
       next()
     }
   } else {
-    console.log('前台');
     if (islogin == null && ['/mylogin', '/register'].includes(to.path)) {
       next()
     } else if (islogin == null && !['/mylogin', '/register'].includes(to.path)) {

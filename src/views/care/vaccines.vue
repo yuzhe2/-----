@@ -110,10 +110,10 @@ export default {
   },
   created() {
     this.aid = sessionStorage.getItem("id") || "";
+    this.addForm.aid = this.aid
     this.getData();
     this.getAdmin();
   },
-  mounted() {},
   methods: {
     //大图上传
     imgSuccess(file) {
@@ -141,7 +141,7 @@ export default {
           search: this.searchForm.name,
           offset: this.offset,
           limit: this.limit,
-          aid: this.aid,
+          aid: this.aid
         })
         .then((res) => {
           if (res.code == 200) {
@@ -154,9 +154,6 @@ export default {
     //模态框-关闭
     close() {
       this.showDialog = false;
-      let time = setTimeout(() => {
-        this.resetData("addForm", this); //重置数据
-      }, 300);
     },
 
     //删除

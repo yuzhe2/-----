@@ -99,7 +99,7 @@ export const constantRoutes = [
     hidden: true
   },
 
-  //后台
+  // 超级管理员后台
   {
     path: '/admin',
     component: Layout,
@@ -140,6 +140,34 @@ export const constantRoutes = [
         component: () => import('@/views/admin/moments'),
         meta: { title: '留言板管理', isadmin: true }
       },
+      {
+        path: 'medical',
+        component: () => import('@/views/admin/medical'),
+        meta: { title: '医护人员管理', isadmin: true }
+      }
+    ]
+  },
+
+  {
+    path: '/care',
+    component: Layout,
+    redirect: '/care/home',
+    children: [
+      {
+        path: 'home',
+        component: () => import('@/views/care/index.vue'),
+        meta: { title: '后台首页', iscare: true },
+      },
+      {
+        path: 'vaccines',
+        component: () => import('@/views/care/vaccines.vue'),
+        meta: { title: '疫苗管理', iscare: true }
+      },
+      {
+        path: 'my',
+        component: () => import('@/views/care/my.vue'),
+        meta: { title: '个人信息', iscare: true }
+      }
     ]
   },
 

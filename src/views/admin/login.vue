@@ -56,6 +56,25 @@ export default {
         this.$router.push({ path: "/admin" });
         return;
       }
+
+      api.userlist({
+        ...this.loginForm,
+        limit: 1,
+        offset: 1,
+      }).then(res => {
+        let aid = res.data.list[0].aid
+        sessionStorage.setItem("adminlogin", true);
+        sessionStorage.setItem("name", "医护管理员");
+        sessionStorage.setItem("superadmin", true);
+        sessionStorage.setItem('id', aid)
+        let sessionArr = ['cardid', 'id', 'name', 'pwd', 'user', 'tel']
+        for (let key in res.data.list[0]) {
+          if (sessionArr.includes(key)) {
+            sessionStorage.setItem(`care${key}`, res.data.list[0][key])
+          }
+        }
+        this.$router.push({ path: "/care" });
+      })
     },
   },
 };
