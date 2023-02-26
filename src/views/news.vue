@@ -11,9 +11,8 @@
     </van-swipe>
 
     <van-tabs v-model="type" @change="getData">
-      <van-tab title="新冠疫苗资讯" name="新冠疫苗资讯" />
-      <van-tab title="HPV疫苗资讯" name="HPV疫苗资讯" />
-      <van-tab title="儿童疫苗资讯" name="儿童疫苗资讯" />
+      <van-tab title="疫苗资讯" name="疫苗资讯" />
+      <van-tab title="防疫咨询" name="防疫咨询" />
     </van-tabs>
     </van-sticky>
     <div class="mb60">
@@ -35,7 +34,7 @@ export default {
   data() {
     return {
       list: [],
-      type: "新冠疫苗资讯",
+      type: "疫苗资讯",
     };
   },
   created() {

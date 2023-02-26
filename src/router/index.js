@@ -133,7 +133,7 @@ export const constantRoutes = [
       {
         path: 'news',
         component: () => import('@/views/admin/news'),
-        meta: { title: '热点管理', isadmin: true }
+        meta: { title: '咨询管理', isadmin: true }
       },
       {
         path: 'moments',

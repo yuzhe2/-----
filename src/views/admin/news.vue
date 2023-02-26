@@ -47,9 +47,8 @@
           </el-form-item>
           <el-form-item label="分类:">
             <el-select v-model="addForm.type" placeholder="请选择分类" class="w100">
-              <el-option label="新冠疫苗资讯" value="新冠疫苗资讯"></el-option>
-              <el-option label="HPV疫苗资讯" value="HPV疫苗资讯"></el-option>
-              <el-option label="儿童疫苗资讯" value="儿童疫苗资讯"></el-option>
+              <el-option label="疫苗资讯" value="疫苗资讯"></el-option>
+              <el-option label="防疫咨询" value="防疫咨询"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="标题:">
@@ -86,7 +85,7 @@ export default {
       },
       addForm: {
         name: "",
-        type:"新冠疫苗资讯",
+        type:"",
         content: "",
         img: "",
       },
